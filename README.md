@@ -1,5 +1,3 @@
-# TestSuiteHostfully
-
 ![Hostfully Logo](./logo.jpeg)
 
 # Computer Test Suite Hostfully
@@ -18,3 +16,18 @@ To install test project **TestSuiteHostFully**, follow these steps:
 To rub test project **TestSuiteHostFully**, follow these steps:
 
 1. Run the application: `npx cypress run`
+
+## Design
+
+Used **Page Component Pattern**
+
+- Break down each page into smaller, reusable components, which are then used to build the page object. This can make your code more flexible and scalable, as you can reuse components across multiple pages and easily make changes to specific parts of the page without affecting the rest.
+
+## Test Scenarios
+
+### Positive scenarios for add computer functionality
+
+- TC: Add a new computer with all fields filled
+- TC: Add a new computer with only mandatory fields filled
+- TC: Add a new computer with discontinued date and brand fields filled
+- TC: Add a new computer with only brand fields filled
