@@ -13,4 +13,13 @@ export class BaseComponent {
     protected getElement() {
         return cy.get(this.selector);
     }
+
+    /**
+     * Method to verify the component, provided should condition
+     * 
+     * @param key - key value for should
+     */
+    public verifyComponent(key: string): void {
+        this.getElement().should(key);
+    }
 }
