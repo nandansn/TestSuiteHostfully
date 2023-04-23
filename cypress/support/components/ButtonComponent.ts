@@ -10,4 +10,11 @@ export class ButtonComponent extends BaseComponent {
     public click() {
         this.getElement().click();
     }
+
+    /**
+     * Click the button using force when it is not interactable.
+     */
+    public forceClick() {
+        this.getElement().click({ force: true });
+    }
 }

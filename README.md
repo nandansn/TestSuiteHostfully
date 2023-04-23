@@ -31,3 +31,24 @@ Used **Page Component Pattern**
 - TC: Add a new computer with only mandatory fields filled
 - TC: Add a new computer with discontinued date and brand fields filled
 - TC: Add a new computer with only brand fields filled
+
+### Positive scenarios for edit computer functionality
+
+- TC:Filter a computer and edit its details
+- TC: Cancel editing a computer
+
+### Positive scenarios for delete computer functionality
+
+- TC: Deleting a computer using the filter and edit pages
+
+### Positive scenarios for search computer functionality
+
+- TC: User filters computers by partial name match
+- TC: User filters computers with no name match
+- TC: User able to navigate the list using pagination
+
+### Negative scenarios for user data validation
+
+- TC: add computers with no name for the computer
+- TC: add computers with wrong introduced date format
+- TC: add computers with wrong discontinued date format

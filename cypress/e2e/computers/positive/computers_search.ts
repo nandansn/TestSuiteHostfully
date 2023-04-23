@@ -33,3 +33,25 @@ Then("i should see the record for search, with computer name {string} introduced
 Then("i should see the list of computers displayed include computers whose name contains Cosmac,  with computer name {string} introduced on {string} discontinued on {string} and company as {string}", (computername: string, introducedon: string, discontinuedon: string, company: string) => {
     HomePage.computersTableComponent.verifyTableValues(computername, introducedon, discontinuedon, company)
 })
+
+Then('i should see the count message {string}', (message: string) => {
+    HomePage.countMessageComponent.verifyMessage('have.text', message);
+});
+
+Then('i should see the pagination buttons are disabled', () => {
+    HomePage.prevLinkComponent.verifyLinkIsDisabled();
+    HomePage.nextLinkComponent.verifyLinkIsDisabled();
+})
+
+
+Then('i click the next navigation link', () => {
+    HomePage.nextLinkComponent.click();
+})
+
+Then('i should see the pagination message {string}', (message: string) => {
+    HomePage.currentLinkComponent.verifyMessage('have.text', message);
+})
+
+Then('i click the previous navigation link', () => {
+    HomePage.prevLinkComponent.click();
+})

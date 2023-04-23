@@ -1,6 +1,7 @@
 import { TextFieldComponent } from "@components/TextFieldComponent";
 import { ButtonComponent } from "@components/ButtonComponent";
 import { DropDownComponent } from "@components/DropDownComponent";
+import { MessageComponent } from "@components/MessageComponent";
 
 /**
  * Page Object for the Add Computer page of the application.
@@ -26,6 +27,12 @@ export class AddComputersPage {
 
     // A DropDownComponent representing the "Company" dropdown on the page
     static companySelectField = new DropDownComponent('#company');
+
+    static nameFieldError = new MessageComponent('div.input input#name + span.help-inline');
+
+    static introducedFieldError = new MessageComponent('div.input input#introduced + span.help-inline');
+
+    static discontinuedFieldError = new MessageComponent('div.input input#discontinued + span.help-inline');
 
     /**
      * Enter the name of the computer in the "Computer name" field.
@@ -87,5 +94,14 @@ export class AddComputersPage {
         computer?.introducedOn.length > 0 ? this.enterIntroduced(computer.introducedOn) : console.log("Introduced On is empty String")
         computer?.discontinuedOn.length > 0 ? this.enterDiscontinued(computer.discontinuedOn) : console.log("Discontinued On is empty String")
         computer?.brand.length > 0 ? this.selectCompany(computer.brand) : console.log("Brand is empty String")
+    }
+
+    /**
+     * 
+     * @param message Verify the field validation error message
+     */
+
+    static verifyFieldError(message: string): void {
+        this.nameFieldError.verifyMessage('have.text', message)
     }
 }

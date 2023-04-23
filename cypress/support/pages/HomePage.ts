@@ -1,4 +1,5 @@
 import { ButtonComponent } from "@components/ButtonComponent";
+import { LinkComponent } from "@components/LinkComponent";
 import { MessageComponent } from "@components/MessageComponent";
 import { TableComponent } from "@components/TableComponent";
 import { TextFieldComponent } from "@components/TextFieldComponent";
@@ -28,6 +29,20 @@ export class HomePage {
 
     // A table component representing the table of computers on the page
     static computersTableComponent = new TableComponent('table.computers');
+
+    // A MessageComponent representing the computer count on the page
+    static countMessageComponent = new MessageComponent('section#main h1');
+
+    // A MessageComponent representing the next link on the pagination
+    static nextLinkComponent = new LinkComponent('li.next a');
+
+    // A LinkComponent representing the previous link on the pagination
+    static prevLinkComponent = new LinkComponent('li.prev a');
+
+
+    // A LinkComponent representing the current message on the pagination, 
+    // this is created as link element in the page
+    static currentLinkComponent = new LinkComponent('li.current a');
 
 
 
@@ -73,8 +88,27 @@ export class HomePage {
     * Verifies that the table exists in the homepage
     */
     static verifyTableExist(): void {
-
         this.computersTableComponent.verifyComponent('exist')
+    }
+
+    /**
+     * Selects the computer and opens the computer edit page.
+     * 
+     * @param computerName 
+     */
+    static selectComputer(computerName: string): void {
+        let row = this.computersTableComponent.getRow(1)
+        let computerNameColumn = this.computersTableComponent.getColumns(row, 1)
+        computerNameColumn.find('a').contains(computerName).click();
+    }
+
+
+    /**
+     * Verify the home page is displayed. by checking the add new computer button exist
+     */
+
+    static verifyHomePage(): void {
+        this.addComputerButton.verifyComponent('exist');
     }
 
 
