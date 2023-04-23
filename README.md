@@ -70,13 +70,19 @@ The project has been published to docker registry
 **Step 1: pull the docker image**
 
 ```
-    docker pull geeknandadocker13/hostfully:v1.0.0
+docker pull geeknandadocker13/hostfully:v1.0.0
 ```
 
 **Step 2: execute test using the docker image**
 
 ```
-    docker run -v /home/username/any-directory/:/hostfully-project/mochawesome-report/ geeknandadocker13/hostfully:v1.0.0
+docker run -v /home/username/any-directory/:/hostfully-project/mochawesome-report/ geeknandadocker13/hostfully:v1.0.0
+```
+
+if you don't want to store the report in your local machine, then you can use following command,
+
+```
+docker run geeknandadocker13/hostfully:v1.0.0
 ```
 
 note: /home/username/any-directory/ => path where you want to store the report in your local host
@@ -91,6 +97,6 @@ after test execution you will see the reports in /home/username/any-directory as
 
 To install test project **TestSuiteHostFully**, follow these steps:
 
-1. Clone the repository : git@github.com:nandansn/TestSuiteHostfully.git
+1. Clone the repository : `git@github.com:nandansn/TestSuiteHostfully.git`
 2. Install dependencies: `npm install`
 3. Run the application: `npm test`
