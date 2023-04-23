@@ -4,7 +4,9 @@
   "description": "Automated UI testing suite for computers web app",
   "main": "",
   "scripts": {
-    "test": "cypress run --browser chrome --headless"
+    "clean:reports": "rm -R -f mochawesome-report/*",
+    "scripts": "cypress run --reporter mochawesome",
+    "test": "npm run clean:reports && npm run scripts"
   },
   "author": "Nandakumar",
   "license": "ISC",
@@ -12,6 +14,8 @@
     "@badeball/cypress-cucumber-preprocessor": "^16.0.3",
     "@cypress/webpack-preprocessor": "^5.17.0",
     "cypress": "^12.10.0",
+    "cypress-mochawesome-reporter": "^3.4.0",
+    "mochawesome": "^7.1.3",
     "ts-loader": "^9.4.2",
     "typescript": "^5.0.4",
     "webpack": "^5.80.0"

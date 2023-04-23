@@ -1,18 +1,17 @@
 
 
 
-import  {defineConfig } from 'cypress'
-import  * as webpack  from '@cypress/webpack-preprocessor'
-import  * as preprocessor  from '@badeball/cypress-cucumber-preprocessor';
+import { defineConfig } from 'cypress'
+import * as webpack from '@cypress/webpack-preprocessor'
+import * as preprocessor from '@badeball/cypress-cucumber-preprocessor';
 import * as path from 'path'
 
-// const preprocessor = require("@badeball/cypress-cucumber-preprocessor");
-// const path = require("path");
 
 async function setupNodeEvents(
   on: Cypress.PluginEvents,
   config: Cypress.PluginConfigOptions
 ): Promise<Cypress.PluginConfigOptions> {
+  require('cypress-mochawesome-reporter/plugin')(on);
   await preprocessor.addCucumberPreprocessorPlugin(on, config);
 
   on(
@@ -52,15 +51,26 @@ async function setupNodeEvents(
     })
   );
 
-  // Make sure to return the config object as it might have been modified by the plugin.
   return config;
 }
 
 module.exports = defineConfig({
+  reporter: 'cypress-mochawesome-reporter',
+  reporterOptions: {
+    charts: true,
+    reportPageTitle: 'Test Suite - Hostfully',
+    embeddedScreenshots: true,
+    inlineAssets: true,
+    saveAllAttempts: false,
+    overwrite: false,
+    "html": true,
+    "json": false,
+
+  },
   e2e: {
     specPattern: "**/*.feature",
     setupNodeEvents,
     baseUrl: "https://computer-database.gatling.io/computers",
   },
-  // globals: true,
+  video: false,
 });

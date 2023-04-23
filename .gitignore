@@ -106,3 +106,6 @@ dist
 # ignore videos
 cypress/videos
 cypress/screenshots
+
+# ignore reports
+mochawesome-report/*
