@@ -5,7 +5,7 @@
   "main": "",
   "scripts": {
     "clean:reports": "rm -R -f mochawesome-report/*",
-    "scripts": "cypress run --reporter mochawesome",
+    "scripts": "cypress run --browser chrome --reporter mochawesome",
     "test": "npm run clean:reports && npm run scripts"
   },
   "author": "Nandakumar",

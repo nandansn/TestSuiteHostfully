@@ -8,7 +8,7 @@
       "@components/*": ["./cypress/support/components/*"],
       "@pages/*": ["./cypress/support/pages/*"],
       
-    }
+    },"strictNullChecks": true
   },
   "include": ["**/*.ts"]
 }
